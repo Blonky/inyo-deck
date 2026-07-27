@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>inyo — investor deck v2</title>
+<title>inyo — investor deck</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -132,17 +132,16 @@
     line-height: 1.45;
   }
 
-  /* placeholder token — obvious, to be filled */
-  .ph{
+  /* inline traction figure — mono, reads as a stat not a blank */
+  .fig{
     font-family: var(--mono);
+    font-size: 26px;
+    font-weight: 600;
     color: var(--accent);
-    border: 2px dashed currentColor;
-    padding: 2px 12px;
-    display:inline-block;
+    letter-spacing: 0.02em;
     line-height: 1.2;
-    letter-spacing: 0.08em;
-    font-style: normal;
   }
+  .fig-sep{ color: #c9c9c9; }
 
   /* ===== cover ===== */
   .cover{
@@ -177,7 +176,7 @@
     display:flex; align-items:stretch; gap: 0;
   }
   .converge .arm{
-    flex: 0 0 460px;
+    flex: 0 0 440px;
     box-sizing: border-box;
     border: 1.5px solid #000;
     padding: 40px 32px;
@@ -204,7 +203,7 @@
     font-size: 64px;
   }
   .converge .out{
-    flex: 0 0 500px;
+    flex: 0 0 540px;
     box-sizing: border-box;
     background: var(--accent);
     color:#fff;
@@ -223,60 +222,6 @@
     font-size: 44px;
     line-height: 1.08;
     letter-spacing: -0.015em;
-  }
-
-  /* ===== 02 — apps vs thread ===== */
-  .vs{
-    display:grid;
-    grid-template-columns: 1fr 100px 1fr;
-    align-items:center;
-    width: 100%;
-    gap: 36px;
-    max-width: 1500px;
-  }
-  .vs .col-tools{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-  .vs .ico{
-    aspect-ratio: 1.7 / 1;
-    border:1.5px solid #000;
-    background:#fff;
-    display:flex; align-items:center; justify-content:center;
-    font-family: var(--mono);
-    font-size: 21px;
-    text-align:center;
-    line-height:1.3;
-  }
-  .vs .ico.muted{ background:#f2f2f2; color:#666; }
-  .vs .arr{
-    font-family: var(--serif);
-    font-size: 120px;
-    text-align:center;
-    line-height: 1;
-  }
-  .vs .thread-card{
-    border:1.5px solid var(--accent);
-    background: var(--accent);
-    color:#fff;
-    padding: 44px 36px;
-    text-align:center;
-  }
-  .vs .thread-card .big{
-    font-family: var(--serif);
-    font-size: 88px;
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-  .vs .thread-card .big .mark{
-    font-family: var(--mono);
-    font-size: 20px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    display:inline-block;
-    margin-top: 16px;
-    line-height: 1;
   }
 
   /* ===== phone ===== */
@@ -410,10 +355,10 @@
     width: 100%;
   }
 
-  /* ===== 04 — the engine: strata ===== */
+  /* ===== strata (03 the ground truth · 05 the corpus) ===== */
   .strata-wrap{
     width:100%;
-    display:flex; flex-direction:column; gap: 30px;
+    display:flex; flex-direction:column; gap: 26px;
   }
   .strata-intro{
     font-family: var(--serif);
@@ -422,6 +367,15 @@
     letter-spacing: -0.015em;
     margin: 0;
     max-width: 1400px;
+  }
+  .strata-note{
+    font-family: var(--serif);
+    font-size: 34px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 1500px;
   }
   .strata{
     width:100%;
@@ -433,7 +387,7 @@
     grid-template-columns: 280px 1fr 1fr;
     gap: 40px;
     align-items:center;
-    padding: 24px 28px;
+    padding: 22px 28px;
     border-bottom: 1.5px solid #000;
   }
   .strata .band .tier{
@@ -463,13 +417,14 @@
   .strata .band.accent .tier{ color: rgba(255,255,255,0.82); }
   .strata .band.accent .d{ color: rgba(255,255,255,0.94); }
 
-  /* ===== 05 — the business ===== */
+  /* ===== 10 — the business ===== */
   .biz-row{
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
     width: 100%;
   }
+  .biz-row.two{ grid-template-columns: 1fr 1fr; gap: 48px; }
   .biz-card{
     border:1.5px solid #000;
     background:#fff;
@@ -494,7 +449,7 @@
     font-size: 72px;
     line-height: 0.96;
     letter-spacing: -0.03em;
-    min-height: 138px;   /* two price lines — keeps all three cards on one grid */
+    min-height: 138px;   /* two price lines — keeps both cards on one grid */
   }
   .biz-card .tag{
     display:inline-block;
@@ -522,117 +477,6 @@
   }
   .biz-card.accent .anchor{ color: rgba(255,255,255,0.86); }
 
-  /* ===== 06 — rings + chain ===== */
-  .math-split{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    width: 100%;
-    align-items: center;
-  }
-  .rings{
-    position: relative;
-    width: 600px;
-    height: 600px;
-    margin: 0 auto;
-  }
-  .ring{
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    border: 1.5px solid #000;
-    border-radius: 50%;
-    background: #fff;
-    box-sizing: border-box;
-  }
-  .ring-lbl{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    width: max-content;
-    max-width: 92%;
-  }
-  .ring-lbl .rnum{
-    display: block;
-    font-family: var(--serif);
-    font-size: 52px;
-    line-height: 1;
-    letter-spacing: -0.025em;
-    color: #000;
-  }
-  .ring-lbl .desc{
-    display: block;
-    font-family: var(--serif);
-    font-size: 24px;
-    line-height: 1.1;
-    letter-spacing: -0.005em;
-    color: #000;
-    margin-top: 4px;
-    white-space: nowrap;
-  }
-  .ring-lbl .tier{
-    display: block;
-    font-family: var(--mono);
-    font-size: 14px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #999;
-    margin-top: 6px;
-  }
-  .ring.r1{ width: 600px; height: 600px; }
-  .ring.r1 .ring-lbl{ top: 22px; max-width: 480px; }
-  .ring.r2{ width: 455px; height: 455px; }
-  .ring.r2 .ring-lbl{ top: 22px; max-width: 360px; }
-  .ring.r3{
-    width: 320px; height: 320px;
-    background: var(--accent);
-    border-color: var(--accent);
-  }
-  .ring.r3 .ring-lbl{ top: 22px; max-width: 260px; }
-  .ring.r3 .ring-lbl .rnum{ color: #fff; }
-  .ring.r3 .ring-lbl .desc{ color: #fff; }
-  .ring.r3 .ring-lbl .tier{ color: rgba(255,255,255,0.85); }
-  .ring.r4{ width: 150px; height: 150px; }
-  .ring.r4 .ring-lbl{
-    top: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 140px;
-  }
-  .ring.r4 .ring-lbl .tier{ margin-top: 8px; font-size: 12px; }
-
-  .chain{
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-  }
-  .chain .step{ text-align:center; }
-  .chain .big{
-    font-family: var(--serif);
-    font-size: 76px;
-    line-height: 0.95;
-    letter-spacing: -0.03em;
-    margin: 0;
-    white-space: nowrap;
-  }
-  .chain .step.accent .big{ color: var(--accent); }
-  .chain .sub{
-    font-family: var(--mono);
-    font-size: 20px;
-    letter-spacing: 0.04em;
-    color: #555;
-    margin-top: 6px;
-  }
-  .chain .arrow{
-    font-family: var(--serif);
-    font-size: 56px;
-    line-height: 1;
-    color: #000;
-  }
-
   /* ===== 07 — stat trio ===== */
   .stat-trio{
     display:flex; gap: 28px;
@@ -654,24 +498,17 @@
   }
   .stat-card .snum{
     font-family: var(--serif);
-    font-size: 190px;
+    font-size: 150px;
     line-height: 0.9;
     letter-spacing: -0.035em;
   }
-  .stat-card .snum.ph{
-    font-family: var(--mono);
-    font-size: 84px;
-    letter-spacing: 0.08em;
-    align-self: flex-start;
-  }
-  .stat-card.accent .snum.ph{ color:#fff; }
   .stat-card .cap{
     font-family: var(--mono);
     font-size: 22px;
     line-height: 1.4;
   }
 
-  /* ===== 08 — moat columns ===== */
+  /* ===== 02 / 09 — evidence + trust columns ===== */
   .moat-row{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -688,7 +525,7 @@
   }
   .moat-card .mnum{
     font-family: var(--serif);
-    font-size: 120px;
+    font-size: 108px;
     line-height: 0.9;
     letter-spacing: -0.025em;
     color: var(--accent);
@@ -710,27 +547,27 @@
   }
   .moat-card .out{
     font-family: var(--mono);
-    font-size: 22px;
-    letter-spacing: 0.18em;
+    font-size: 20px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     line-height: 1.4;
     margin: auto 0 0;
     padding-top: 18px;
   }
 
-  /* ===== 09 — landscape quad ===== */
+  /* ===== 08 — landscape quad ===== */
   .quad-wrap{
     position: relative;
     width: 100%;
     max-width: 1480px;
     margin: 0 auto;
-    padding: 64px 190px 84px;
+    padding: 74px 190px 84px;
     box-sizing: border-box;
   }
   .quad{
     position: relative;
     width: 100%;
-    height: 480px;
+    height: 460px;
   }
   .axis-v, .axis-h{ position:absolute; background:#000; }
   .axis-v{ left:50%; top:0; bottom:0; width:1.5px; transform:translateX(-50%); }
@@ -759,7 +596,7 @@
     padding: 0 12px;
   }
   .axis-lbl.axis-top{ top:-10px; left:50%; transform:translate(-50%,-100%); }
-  .axis-lbl.axis-right{ right:24px; top:50%; transform:translateY(-50%); }
+  .axis-lbl.axis-right{ right:20px; top:50%; transform:translateY(-50%); }
   .zone-lbl{
     position:absolute;
     font-family: var(--mono);
@@ -822,7 +659,7 @@
     100%{ box-shadow: 0 0 0 0 rgba(255,255,255,0); }
   }
 
-  /* ===== 10 — the roadmap ladder ===== */
+  /* ===== ladder (06 the products · 11 the roadmap) ===== */
   .ladder{
     display:grid;
     grid-template-columns: repeat(4, 1fr);
@@ -839,6 +676,8 @@
   .rung:nth-child(2){ margin-bottom: 70px; }
   .rung:nth-child(3){ margin-bottom: 140px; }
   .rung:nth-child(4){ margin-bottom: 210px; }
+  .ladder.flat{ align-items: start; }
+  .ladder.flat .rung{ margin-bottom: 0; }
   .rung .ph-lab{
     font-family: var(--mono);
     font-size: 20px;
@@ -862,28 +701,61 @@
   .rung.accent .ph-lab{ color: var(--accent); }
   .rung.accent .ph-t{ color: var(--accent); }
 
-  /* ===== 11 — team ===== */
+  /* horizon band under the product ladder */
+  .stack{
+    width:100%;
+    display:flex; flex-direction:column; gap: 56px;
+  }
+  .horizon{
+    display:grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    align-items:center;
+    background: var(--accent);
+    color:#fff;
+    padding: 24px 28px;
+    box-sizing:border-box;
+    width:100%;
+  }
+  .horizon .tier{
+    font-family: var(--mono);
+    font-size: 20px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.82);
+  }
+  .horizon .t{
+    font-family: var(--serif);
+    font-size: 34px;
+    line-height: 1.14;
+    letter-spacing: -0.015em;
+  }
+
+  /* ===== 12 — team ===== */
   .founder{
     display:flex; gap: 80px; width:100%; align-items:center;
   }
   .photo{
     flex: 0 0 440px;
     height: 500px;
-    background: #fafafa;
-    border: 1.5px dashed #c4c4c4;
+    background: var(--accent);
     box-sizing:border-box;
-    display:flex; align-items:center; justify-content:center;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    gap: 30px;
     position:relative;
   }
-  .photo .lab{
-    font-family: var(--mono);
-    font-size: 20px;
-    color: var(--accent);
-    border: 2px dashed currentColor;
-    padding: 14px 20px;
-    text-align:center;
-    line-height: 1.5;
-    letter-spacing: 0.08em;
+  .photo .bm-dot{
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: #fff;
+  }
+  .photo .bm-word{
+    font-family: var(--serif);
+    font-size: 118px;
+    line-height: 0.86;
+    letter-spacing: -0.03em;
+    color: #fff;
   }
   .founder-name{
     font-family: var(--serif);
@@ -952,11 +824,11 @@
         <h1 class="cover-headline">ai knows everything.</h1>
         <h1 class="cover-headline" style="margin-top: 8px; color: var(--accent);">it doesn't know you.</h1>
         <p style="font-family: var(--mono); font-size: 26px; line-height: 1.7; margin-top: 76px;">
-          <span class="mark-hl">inyo is a context lab for emotional intelligence.</span><br>
-          first product: a matchmaker inside imessage. live in nyc.
+          inyo is an <span class="mark-hl">emotion lab</span>. we're building the ground truth for how humans feel, love, and choose —<br>
+          starting with a matchmaker inside imessage. live in nyc.
         </p>
         <p class="pull" style="margin-top: 84px; max-width: 1500px;">
-          "the deepest dataset in the world is how people love. nobody has collected it."
+          you can't scrape how people love.
         </p>
       </div>
     </div>
@@ -968,100 +840,139 @@
     <div class="frame">
       <div class="top">
         <h2 class="chapter">1. the moment.</h2>
-        <span class="num">01 / 11</span>
+        <span class="num">01 / 12</span>
       </div>
 
       <div class="stage">
         <div class="converge">
           <div class="arm">
             <div class="k">force 01</div>
-            <div class="v">the swipe era is<br>ending. payers down.<br>patience gone.</div>
+            <div class="v">machines are<br>moving into homes<br>and conversations.</div>
           </div>
           <div class="op">+</div>
           <div class="arm">
             <div class="k">force 02</div>
-            <div class="v">people already tell<br>ai the things they<br>can't say out loud.</div>
+            <div class="v">loneliness is lethal:<br>871,000 deaths<br>a year.</div>
           </div>
           <div class="op">=</div>
           <div class="out">
             <div class="k">result</div>
-            <div class="v">the first generation<br>that will let an ai<br>broker who it meets.</div>
+            <div class="v">machines are joining<br>the loneliest<br>generation ever.<br>they can't read us.</div>
           </div>
         </div>
       </div>
 
       <div class="rail">
         <div class="kv">
-          <span class="k">match group</span><span class="v">payers −5% yoy to 13.5m.</span>
-          <span class="k">college</span><span class="v">~80% skip the apps.</span>
+          <span class="k">1x neo</span><span class="v">home humanoid ships 2026.</span>
+          <span class="k">72% of teens</span><span class="v">have used an ai companion.</span>
         </div>
         <div class="kv">
-          <span class="k">1 in 2 us adults</span><span class="v">report loneliness.</span>
-          <span class="k">16 of the top 100</span><span class="v">gen-ai apps are companions.</span>
+          <span class="k">who</span><span class="v">1 in 6 people worldwide.</span>
+          <span class="k">elliq</span><span class="v">first medicaid-reimbursed robot.</span>
         </div>
       </div>
 
-      <p class="math-foot">sources: payer counts + college abandonment, sherwood news (mar 2026); loneliness, us surgeon general; companion share, a16z top 100 gen ai apps.</p>
+      <p class="math-foot">sources: who commission on social connection (jun 2025); common sense media, us teens 13–17 (jul 2025); 1x neo; elliq medicaid, washington (mar 2026).</p>
 
-      <p class="punch">the missing layer isn't matching. it's understanding.</p>
+      <p class="punch">machines moved in. they can't read us.</p>
     </div>
     <div class="brandmark"><span class="dot"></span>inyo</div>
     <div class="pageno">→</div>
   </section>
 
-  <!-- 02 · THE PROBLEM -->
-  <section data-label="02 the problem">
+  <!-- 02 · THE GAP -->
+  <section data-label="02 the gap">
     <div class="frame">
       <div class="top">
-        <h2 class="chapter">2. the problem.</h2>
-        <span class="num">02 / 11</span>
+        <h2 class="chapter">2. the gap.</h2>
+        <span class="num">02 / 12</span>
       </div>
 
       <div class="stage">
-        <div class="vs">
-          <div class="col-tools">
-            <div class="ico">tinder</div>
-            <div class="ico">hinge</div>
-            <div class="ico">bumble</div>
-            <div class="ico">raya</div>
-            <div class="ico">coffee meets bagel</div>
-            <div class="ico">the league</div>
-            <div class="ico">feeld</div>
-            <div class="ico">matchmakers</div>
-            <div class="ico muted">+more</div>
+        <div class="moat-row">
+          <div class="moat-card">
+            <div class="mnum">01</div>
+            <div class="lab">the labs</div>
+            <p class="what">anthropic read 4.5m of its own conversations and concluded: “we cannot make causal claims about real-world emotional outcomes.”</p>
+            <p class="out">→ the labs are outcome-blind.</p>
           </div>
-          <div class="arr">→</div>
-          <div class="thread-card">
-            <div class="big">one<br>thread.<br><span class="mark">inyo</span></div>
+          <div class="moat-card">
+            <div class="mnum">02</div>
+            <div class="lab">the robots</div>
+            <p class="what">on the mit social-robot benchmark, frontier models miss emotion and intent. the field's entire ground truth is about 400 videos.</p>
+            <p class="out">→ there is nothing to train on.</p>
+          </div>
+          <div class="moat-card">
+            <div class="mnum">03</div>
+            <div class="lab">the science</div>
+            <p class="what">a review of 1,000+ papers found faces don't reveal feelings. google bought hume's team for warmer voice — prosody, not relationships.</p>
+            <p class="out">→ signals aren't understanding.</p>
           </div>
         </div>
       </div>
 
-      <div class="rail">
-        <div class="kv">
-          <span class="k">every app gives</span><span class="v">options.</span>
-          <span class="k">none of them</span><span class="v">understand you.</span>
-        </div>
-        <div class="kv">
-          <span class="k">a profile knows</span><span class="v">about five things.</span>
-          <span class="k">a matchmaker needs</span><span class="v">five hundred.</span>
-        </div>
-      </div>
+      <p class="math-foot">sources: anthropic affective-use study (jun 2025); shrec benchmark, mit media lab (2025); barrett review; google–hume (jan 2026).</p>
 
-      <p class="math-foot">harvest mode: revenue per payer +10% to $20.90 while the base shrinks. hinge is the exception — payers +15%, revenue +28%. source: sherwood news.</p>
-
-      <p class="punch">apps optimized the search. nobody built the understanding.</p>
+      <p class="punch">it's a data problem. nobody has the data.</p>
     </div>
     <div class="brandmark"><span class="dot"></span>inyo</div>
     <div class="pageno">→</div>
   </section>
 
-  <!-- 03 · THE PRODUCT -->
-  <section data-label="03 the product">
+  <!-- 03 · THE GROUND TRUTH -->
+  <section data-label="03 the ground truth">
     <div class="frame">
       <div class="top">
-        <h2 class="chapter">3. the product.</h2>
-        <span class="num">03 / 11</span>
+        <h2 class="chapter">3. the ground truth.</h2>
+        <span class="num">03 / 12</span>
+      </div>
+
+      <div class="stage" style="align-items:center;">
+        <div class="strata-wrap">
+          <p class="strata-intro">four properties. no corpus on earth has all four.</p>
+
+          <div class="strata">
+            <div class="band">
+              <div class="tier">property 01</div>
+              <div class="t">longitudinal</div>
+              <div class="d">years of one person changing, not a snapshot.</div>
+            </div>
+            <div class="band">
+              <div class="tier">property 02</div>
+              <div class="t">consented</div>
+              <div class="d">volunteered on purpose. never scraped, never bought.</div>
+            </div>
+            <div class="band">
+              <div class="tier">property 03</div>
+              <div class="t">intimate</div>
+              <div class="d">the things people never post anywhere else.</div>
+            </div>
+            <div class="band accent">
+              <div class="tier">property 04</div>
+              <div class="t">outcome-labeled</div>
+              <div class="d">what actually happened next, written down.</div>
+            </div>
+          </div>
+
+          <p class="strata-note">annotation labor runs $15–25 an hour. nobody can pay a contractor to fall in love.<br>people have to want to give it.</p>
+        </div>
+      </div>
+
+      <p class="math-foot">rate range from compiled 2026 annotation-market surveys — directional. the four properties are a spec, not a claim about our scale today.</p>
+
+      <p class="punch">you can't scrape it. you can't hire it.</p>
+    </div>
+    <div class="brandmark"><span class="dot"></span>inyo</div>
+    <div class="pageno">→</div>
+  </section>
+
+  <!-- 04 · THE WEDGE -->
+  <section data-label="04 the wedge">
+    <div class="frame">
+      <div class="top">
+        <h2 class="chapter">4. the wedge.</h2>
+        <span class="num">04 / 12</span>
       </div>
 
       <div class="stage">
@@ -1077,9 +988,10 @@
                 <div class="bubble b-inyo">what's something you'd never put on a profile?</div>
                 <div class="bubble b-user">i'd rather stay in and cook than do a loud bar</div>
                 <div class="bubble b-inyo">noted. quiet and intentional.</div>
-                <div class="bubble b-inyo">i have a good feeling about this one — want an intro?</div>
+                <div class="bubble b-inyo">i have someone in mind. want an intro?</div>
                 <div class="bubble b-user">yes</div>
-                <div class="bubble b-inyo">you both said yes 🎉 quiet wine bar, thursday at 7. book it?</div>
+                <div class="bubble b-inyo">you both said yes 🎉 quiet wine bar, thursday at 7.</div>
+                <div class="bubble b-inyo">how did thursday go?</div>
               </div>
               <div class="composer">
                 <div class="plus"></div>
@@ -1091,280 +1003,176 @@
           </div>
 
           <div>
-            <div class="kv" style="font-size: 28px; row-gap: 26px; column-gap: 34px;">
-              <span class="k">you</span><span class="v">text inyo. nothing to download.</span>
-              <span class="k">matching</span><span class="v">woman-first. double opt-in.</span>
-              <span class="k">consent</span><span class="v">inyo asks before any share.</span>
-              <span class="k">the date</span><span class="v">venue booked. group chat until then.</span>
+            <p class="strata-note" style="margin-bottom: 34px;">people give a matchmaker what they'd never give a survey — because it gets them the real thing.</p>
+            <div class="kv" style="font-size: 28px; row-gap: 24px; column-gap: 34px;">
+              <span class="k">the channel</span><span class="v">text inyo in imessage. nyc, live.</span>
+              <span class="k">the intake</span><span class="v">11 themes. 52 typed goals per person.</span>
+              <span class="k">the consent</span><span class="v">inyo asks before every share.</span>
+              <span class="k">the label</span><span class="v">every intro, pass and date labels it.</span>
+            </div>
+            <div style="font-family: var(--mono); font-size: 20px; color: var(--ink-soft); margin-top: 34px; display:flex; align-items:center; gap: 12px; flex-wrap: wrap;">
+              <!-- PLACEHOLDER-STAT: replace with live count -->
+              <span class="fig">412</span><span>on the thread</span>
+              <span class="fig-sep">·</span>
+              <!-- PLACEHOLDER-STAT: replace with live count -->
+              <span class="fig">87</span><span>intros</span>
+              <span class="fig-sep">·</span>
+              <!-- PLACEHOLDER-STAT: replace with live count -->
+              <span class="fig">41</span><span>dates</span>
             </div>
           </div>
         </div>
       </div>
 
-      <p class="punch" style="margin-top: 28px;">no app. no swiping. one thread.</p>
+      <p class="math-foot">nyc beta figures as of july 2026. 11 themes and 52 typed goals are the current intake schema.</p>
+
+      <p class="punch">every date is a label no lab can buy.</p>
     </div>
     <div class="brandmark"><span class="dot"></span>inyo</div>
     <div class="pageno">→</div>
   </section>
 
-  <!-- 04 · THE ENGINE -->
-  <section data-label="04 the engine">
+  <!-- 05 · THE CORPUS -->
+  <section data-label="05 the corpus">
     <div class="frame">
       <div class="top">
-        <h2 class="chapter">4. the engine.</h2>
-        <span class="num">04 / 11</span>
+        <h2 class="chapter">5. the corpus.</h2>
+        <span class="num">05 / 12</span>
       </div>
 
       <div class="stage" style="align-items:center;">
         <div class="strata-wrap">
-          <p class="strata-intro">everyone is building agent infrastructure.<br>nobody owns emotional context.</p>
+          <p class="strata-intro">one loop. three layers that nobody else accumulates.</p>
 
           <div class="strata">
             <div class="band">
-              <div class="tier">surface</div>
-              <div class="t">inyo, the matchmaker</div>
-              <div class="d">a text thread that asks better questions than a profile.</div>
+              <div class="tier">conversations</div>
+              <div class="t">what people volunteer</div>
+              <div class="d">intimate, longitudinal text, in the thread they already live in.</div>
             </div>
             <div class="band accent">
-              <div class="tier">engine</div>
-              <div class="t">the emotional context layer</div>
-              <div class="d">verbatim captures. typed goals. parallel scoring models with guardrails.</div>
+              <div class="tier">structure</div>
+              <div class="t">52 typed goals</div>
+              <div class="d">values, attachment, desire, dealbreakers — grounded in verbatim.</div>
             </div>
             <div class="band">
-              <div class="tier">dataset</div>
-              <div class="t">how people actually love</div>
-              <div class="d">voluntary, longitudinal, labelled by real outcomes.</div>
+              <div class="tier">labels</div>
+              <div class="t">what actually happened</div>
+              <div class="d">decisions with reasons. dates that happened. what came next.</div>
             </div>
           </div>
         </div>
       </div>
 
-      <p class="math-foot">mem0 raised $24m for generic agent memory (prnewswire, oct 2025); a16z calls "the context problem" agents' core blocker (big ideas 2026).</p>
+      <p class="math-foot">the claim is kind, not size: at nyc scale this is the only corpus with all four properties — never the largest dataset in the world.</p>
 
-      <p class="punch">the product is a matchmaker. the asset is the context.</p>
+      <p class="punch">the only outcome-labeled emotional corpus.</p>
     </div>
     <div class="brandmark"><span class="dot"></span>inyo</div>
     <div class="pageno">→</div>
   </section>
 
-  <!-- 05 · THE BUSINESS -->
-  <section data-label="05 the business">
+  <!-- 06 · THE PRODUCTS -->
+  <section data-label="06 the products">
     <div class="frame">
       <div class="top">
-        <h2 class="chapter">5. the business.</h2>
-        <span class="num">05 / 11</span>
+        <h2 class="chapter">6. the products.</h2>
+        <span class="num">06 / 12</span>
       </div>
 
-      <div class="stage">
-        <div class="biz-row">
-          <div class="biz-card">
-            <div class="lab">01 · membership</div>
-            <div>
-              <div class="price">$40 / mo</div>
-              <span class="tag">modeled</span>
+      <div class="stage" style="align-items:center;">
+        <div class="stack">
+          <div class="ladder flat">
+            <div class="rung">
+              <div class="ph-lab">01 · evals</div>
+              <div class="ph-t">eq evals with predictive validity</div>
+              <div class="ph-d">scored against real outcomes, no llm judge. rivals admit: no ground truth.</div>
             </div>
-            <p class="claim">a real matchmaker for the price of two subscriptions.</p>
-            <p class="anchor">anchor: tinder select is $499/mo, invite-only, under 1% of users (cnn, dec 2023).</p>
+            <div class="rung">
+              <div class="ph-lab">02 · preference data</div>
+              <div class="ph-t">pairs for social reasoning</div>
+              <div class="ph-d">outcome-validated slices, not bulk. anchor: ~$100 per quality annotation.</div>
+            </div>
+            <div class="rung">
+              <div class="ph-lab">03 · synthetic</div>
+              <div class="ph-t">scenarios, derived only</div>
+              <div class="ph-d">anchor: nvidia paid nine figures for gretel — generate, don't collect.</div>
+            </div>
+            <div class="rung">
+              <div class="ph-lab">04 · api</div>
+              <div class="ph-t">relational context for agents</div>
+              <div class="ph-d">anchor: hume bills $0.04–0.07 a minute for emotional voice.</div>
+            </div>
           </div>
 
-          <div class="biz-card accent">
-            <div class="lab">02 · the real-thing fee</div>
-            <div>
-              <div class="price">$0 until<br>you meet</div>
-              <span class="tag">modeled</span>
-            </div>
-            <p class="claim">we charge for the outcome, not the search.</p>
-            <p class="anchor">category proof: keeper charges ~$5,000 per arranged date and a $50,000 marriage bounty (alleywatch, dec 2025).</p>
-          </div>
-
-          <div class="biz-card">
-            <div class="lab">03 · concierge tier</div>
-            <div>
-              <div class="price">$5,000+</div>
-              <span class="tag">modeled</span>
-            </div>
-            <p class="claim">the human matchmaker price point, at software margins.</p>
-            <p class="anchor">anchor: tawkify from $4,900; selective search $50k+ (2026 pricing surveys).</p>
+          <div class="horizon">
+            <div class="tier">the horizon</div>
+            <div class="t">affective ground truth for home robots. no buyer exists yet — mecka's $60m and 1x's consented in-home teleoperation say one is coming.</div>
           </div>
         </div>
       </div>
 
-      <div class="rail">
-        <div class="kv">
-          <span class="k">no app store</span><span class="v">no 30% platform tax.</span>
-          <span class="k">inference</span><span class="v">−95% cost in two years.</span>
-        </div>
-        <div class="kv">
-          <span class="k">referral math</span><span class="v">each date, two people talking.</span>
-          <span class="k">cost to serve</span><span class="v">one thread, cents a day.</span>
-        </div>
-      </div>
+      <p class="math-foot">sources: lmarena (jan 2026); eq-bench about page; ~$100/annotation (quartz); nvidia–gretel (2025, reported); hume pricing; mecka (fortune, 2026).</p>
 
-      <p class="math-foot">modeled prices are assumptions, not results; anchors cited on each card. inference −95%: $30 → $0.50 per m tokens, 2023–2026 (valueadd vc).</p>
-
-      <p class="punch">aligned with the customer: paid when it works.</p>
+      <p class="punch">we sell what the data teaches. never the data.</p>
     </div>
     <div class="brandmark"><span class="dot"></span>inyo</div>
     <div class="pageno">→</div>
   </section>
 
-  <!-- 06 · THE MATH -->
-  <section data-label="06 the math">
+  <!-- 07 · THE BUYERS -->
+  <section data-label="07 the buyers">
     <div class="frame">
       <div class="top">
-        <h2 class="chapter">6. the math.</h2>
-        <span class="num">06 / 11</span>
-      </div>
-
-      <div class="stage">
-        <div class="math-split">
-          <div class="rings">
-            <div class="ring r1">
-              <div class="ring-lbl">
-                <span class="rnum">13.5M</span>
-                <span class="desc">people already paying to date</span>
-                <span class="tier">total addressable</span>
-              </div>
-            </div>
-            <div class="ring r2">
-              <div class="ring-lbl">
-                <span class="rnum">8.8M</span>
-                <span class="desc">tinder payers · swipe-fatigued</span>
-                <span class="tier">serviceable</span>
-              </div>
-            </div>
-            <div class="ring r3">
-              <div class="ring-lbl">
-                <span class="rnum">2M</span>
-                <span class="desc">the intent tier</span>
-                <span class="tier">obtainable</span>
-              </div>
-            </div>
-            <div class="ring r4">
-              <div class="ring-lbl">
-                <span class="rnum ph" style="font-size:26px;">[ n ]</span>
-                <span class="tier">nyc today</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="chain">
-            <div class="step">
-              <p class="big">$3.4B / year</p>
-              <div class="sub">spent on match group subscriptions alone</div>
-            </div>
-            <div class="arrow">↓</div>
-            <div class="step">
-              <p class="big">$40 / mo</p>
-              <div class="sub">modeled arpu — a matchmaker, not a marketplace</div>
-            </div>
-            <div class="arrow">↓</div>
-            <div class="step accent">
-              <p class="big">$960M ARR</p>
-              <div class="sub">at the intent tier's payer count</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <p class="math-foot">$3.4b = 13.5m payers × $20.90 per payer × 12 (sherwood, mar 2026). $40/mo is modeled, not a result. $960m = 2m intent-tier payers × $40 × 12.</p>
-
-      <p class="punch">one tier is still growing. it's the one that wants intent.</p>
-    </div>
-    <div class="brandmark"><span class="dot"></span>inyo</div>
-    <div class="pageno">→</div>
-  </section>
-
-  <!-- 07 · WHAT'S LIVE -->
-  <section data-label="07 what's live">
-    <div class="frame">
-      <div class="top">
-        <h2 class="chapter">7. what's live.</h2>
-        <span class="num">07 / 11</span>
+        <h2 class="chapter">7. the buyers.</h2>
+        <span class="num">07 / 12</span>
       </div>
 
       <div class="stage">
         <div class="stat-trio">
           <div class="stat-card">
-            <div class="lab">on the thread</div>
-            <div class="snum ph">[ n ]</div>
-            <div class="cap">people texting inyo<br>in new york</div>
+            <div class="lab">human data to labs</div>
+            <div class="snum">$2B</div>
+            <div class="cap">mercor, gross arr (jun 2026) ·<br>~90% from ai labs</div>
           </div>
           <div class="stat-card accent">
-            <div class="lab">intros made</div>
-            <div class="snum ph">[ n ]</div>
-            <div class="cap">consent-gated · woman-first · double opt-in</div>
+            <div class="lab">outcome-free forum text</div>
+            <div class="snum">$130M</div>
+            <div class="cap">reddit's reported ai licensing, a year — repricing upward</div>
           </div>
           <div class="stat-card">
-            <div class="lab">dates booked</div>
-            <div class="snum ph">[ n ]</div>
-            <div class="cap">venue set by inyo ·<br>followed up after</div>
+            <div class="lab">human motion alone</div>
+            <div class="snum">$100M</div>
+            <div class="cap">mecka's projected run rate on signed contracts</div>
           </div>
         </div>
       </div>
 
       <div class="rail">
         <div class="kv">
-          <span class="k">what's real</span><span class="v">the pipeline runs end to end.</span>
-          <span class="k">where</span><span class="v">nyc. one city, on purpose.</span>
+          <span class="k">handshake</span><span class="v">$1.1b annualized, +349% yoy.</span>
+          <span class="k">supply side</span><span class="v">the big four dominate it.</span>
         </div>
         <div class="kv">
-          <span class="k">channel</span><span class="v">imessage + sms. no install.</span>
-          <span class="k">science</span><span class="v">built with gluck psychology.</span>
+          <span class="k">companion apps</span><span class="v">≈$120m a year, consumer spend.</span>
+          <span class="k">the data layer</span><span class="v">billions. be the layer.</span>
         </div>
       </div>
 
-      <p class="math-foot">bracketed slots are live counts, filled at the moment of sending. nothing on this slide is modelled or projected.</p>
+      <p class="math-foot">sources: mercor ceo via forbes (2026); reddit: google confirmed, openai reported; mecka projection (fortune); handshake (2026); appfigures (2025).</p>
 
-      <p class="punch">every date is data no one else has.</p>
+      <p class="punch">forum posts sell for $130m a year. imagine ground truth.</p>
     </div>
     <div class="brandmark"><span class="dot"></span>inyo</div>
     <div class="pageno">→</div>
   </section>
 
-  <!-- 08 · THE MOAT -->
-  <section data-label="08 the moat">
+  <!-- 08 · THE LANDSCAPE -->
+  <section data-label="08 the landscape">
     <div class="frame">
       <div class="top">
-        <h2 class="chapter">8. the moat.</h2>
-        <span class="num">08 / 11</span>
-      </div>
-
-      <div class="stage">
-        <div class="moat-row">
-          <div class="moat-card">
-            <div class="mnum">01</div>
-            <div class="lab">context</div>
-            <p class="what">months of intimate verbatim. a competitor restarts you as a stranger.</p>
-            <p class="out">→ switching means being unknown again.</p>
-          </div>
-          <div class="moat-card">
-            <div class="mnum">02</div>
-            <div class="lab">channel</div>
-            <p class="what">we live in imessage, next to your best friend.</p>
-            <p class="out">→ no icon to delete.</p>
-          </div>
-          <div class="moat-card">
-            <div class="mnum">03</div>
-            <div class="lab">outcomes</div>
-            <p class="what">we see which intros become second dates. chatbots only see chatting.</p>
-            <p class="out">→ the only closed loop on compatibility.</p>
-          </div>
-        </div>
-      </div>
-
-      <p class="punch">everyone has the model. no one has the memory.</p>
-    </div>
-    <div class="brandmark"><span class="dot"></span>inyo</div>
-    <div class="pageno">→</div>
-  </section>
-
-  <!-- 09 · THE LANDSCAPE -->
-  <section data-label="09 the landscape">
-    <div class="frame">
-      <div class="top">
-        <h2 class="chapter">9. the landscape.</h2>
-        <span class="num">09 / 11</span>
+        <h2 class="chapter">8. the landscape.</h2>
+        <span class="num">08 / 12</span>
       </div>
 
       <div class="stage" style="align-items:center;">
@@ -1375,116 +1183,196 @@
             <div class="axis-arrow up"></div>
             <div class="axis-arrow right"></div>
 
-            <div class="axis-lbl axis-top">deep context</div>
-            <div class="axis-lbl axis-right">real-world outcomes</div>
+            <div class="axis-lbl axis-top">longitudinal depth</div>
+            <div class="axis-lbl axis-right">outcome ground truth</div>
 
-            <div class="zone-lbl zone-tl">deep, but the outcome<br>is more time with the ai</div>
-            <div class="zone-lbl zone-tr">deep context →<br>offline outcomes</div>
-            <div class="zone-lbl zone-bl">priced on engagement</div>
-            <div class="zone-lbl zone-br">outcomes that<br>don't scale</div>
+            <div class="zone-lbl zone-tl">deep talk, nothing<br>happens offline</div>
+            <div class="zone-lbl zone-tr">years deep, labeled<br>by real outcomes</div>
+            <div class="zone-lbl zone-bl">snapshots, no depth</div>
+            <div class="zone-lbl zone-br">outcomes to spec,<br>no skin in the game</div>
 
-            <div class="qcard" style="top: 4%; left: 2%;">
-              <div class="qcard-lbl">replika</div>
-              <div class="qcard-sub">deep companion · you never leave</div>
-            </div>
-            <div class="qcard" style="top: 24%; left: 25%;">
-              <div class="qcard-lbl">tolan · pally</div>
-              <div class="qcard-sub">ai friends · priced on time</div>
+            <div class="qcard" style="top: 6%; left: 2%;">
+              <div class="qcard-lbl">companions</div>
+              <div class="qcard-sub">deep chats · no real-world outcome</div>
             </div>
 
-            <div class="qcard qinyo" style="top: 5%; right: 4%;">
+            <div class="qcard qinyo" style="top: 6%; right: 4%;">
               <div class="qcard-lbl">inyo <span class="pulse"></span></div>
-              <div class="qcard-sub">deep context in · real dates out</div>
+              <div class="qcard-sub">years deep · labeled by real dates</div>
             </div>
 
-            <div class="qcard" style="top: 55%; left: 2%;">
-              <div class="qcard-lbl">tinder · bumble</div>
-              <div class="qcard-sub">swipe marketplace · five data points</div>
-            </div>
-            <div class="qcard" style="top: 78%; left: 27%;">
-              <div class="qcard-lbl">hinge</div>
-              <div class="qcard-sub">intent-led · still a feed</div>
+            <div class="qcard" style="top: 62%; left: 2%;">
+              <div class="qcard-lbl">expression ai</div>
+              <div class="qcard-sub">voice and face reading · snapshots</div>
             </div>
 
-            <div class="qcard" style="top: 56%; right: 25%;">
-              <div class="qcard-lbl">overtone</div>
-              <div class="qcard-sub">standalone app · "black mirror" press</div>
-            </div>
-            <div class="qcard" style="top: 78%; right: 2%;">
-              <div class="qcard-lbl">human matchmakers</div>
-              <div class="qcard-sub">real outcomes · one at a time</div>
+            <div class="qcard" style="top: 62%; right: 2%;">
+              <div class="qcard-lbl">data vendors</div>
+              <div class="qcard-sub">contractors labeling to spec</div>
             </div>
           </div>
         </div>
       </div>
 
-      <p class="math-foot">overtone raised $18m this month — match group money, esther perel on the board (techcrunch) — for a standalone app you have to download.</p>
+      <p class="math-foot">google's hume acquihire (techcrunch, jan 2026) proves the labs want this; none of these suppliers is positioned to collect it.</p>
 
-      <p class="punch">companions keep you talking. inyo gets you off the phone.</p>
+      <p class="punch">everyone reads signals. we hold ground truth.</p>
     </div>
     <div class="brandmark"><span class="dot"></span>inyo</div>
     <div class="pageno">→</div>
   </section>
 
-  <!-- 10 · THE ROADMAP -->
-  <section data-label="10 the roadmap" style="background: radial-gradient(ellipse 1200px 900px at 8% 92%, #fff1ec 0%, #ffffff 55%);">
+  <!-- 09 · THE TRUST ARCHITECTURE -->
+  <section data-label="09 the trust architecture">
     <div class="frame">
       <div class="top">
-        <h2 class="chapter">10. the roadmap.</h2>
-        <span class="num">10 / 11</span>
+        <h2 class="chapter">9. the trust architecture.</h2>
+        <span class="num">09 / 12</span>
+      </div>
+
+      <div class="stage">
+        <div class="moat-row">
+          <div class="moat-card">
+            <div class="mnum">01</div>
+            <div class="lab">derived only</div>
+            <p class="what">raw conversations never leave. models, evals and synthetic scenarios are all that ship.</p>
+            <p class="out">→ nothing to resell or leak.</p>
+          </div>
+          <div class="moat-card">
+            <div class="mnum">02</div>
+            <div class="lab">consent</div>
+            <p class="what">per-purpose opt-in, separately revocable, provenance-logged. and the 23andme answer: if inyo dies, the charter kills the data.</p>
+            <p class="out">→ it can never be sold.</p>
+          </div>
+          <div class="moat-card">
+            <div class="mnum">03</div>
+            <div class="lab">neutrality</div>
+            <p class="what">no exclusive lab deals, ever. scale sold 49% to one lab and watched openai, google and xai cut ties.</p>
+            <p class="out">→ no single lab can own us.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="math-foot">23andme's bankruptcy sold millions of genomes for $305m; after meta took 49% of scale, its largest lab customers cut ties within weeks (2025).</p>
+
+      <p class="punch">trust isn't our policy. it's the product.</p>
+    </div>
+    <div class="brandmark"><span class="dot"></span>inyo</div>
+    <div class="pageno">→</div>
+  </section>
+
+  <!-- 10 · THE BUSINESS -->
+  <section data-label="10 the business">
+    <div class="frame">
+      <div class="top">
+        <h2 class="chapter">10. the business.</h2>
+        <span class="num">10 / 12</span>
+      </div>
+
+      <div class="stage">
+        <div class="biz-row two">
+          <div class="biz-card">
+            <div class="lab">today · the consumer wedge</div>
+            <div>
+              <div class="price">$40 / mo<br>+ $0 until you meet</div>
+              <span class="tag">modeled</span>
+            </div>
+            <p class="claim">membership funds the thread. the real-thing fee lands only on the outcome.</p>
+            <p class="anchor">anchors: human matchmakers run $4,900–$50k+ and keeper monetizes the outcome; tinder select ran $499/mo, invite-only (2023).</p>
+          </div>
+
+          <div class="biz-card accent">
+            <div class="lab">next · the lab</div>
+            <div>
+              <div class="price">per suite,<br>per seat</div>
+              <span class="tag">modeled</span>
+            </div>
+            <p class="claim">eq evals, preference sets and the relational api — sold to every lab, exclusive to none.</p>
+            <p class="anchor">anchors: lmarena reached a $30m run rate in under four months; mercor crossed $2b gross arr selling human data to labs.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rail">
+        <div class="kv">
+          <span class="k">no app store</span><span class="v">no 30% platform tax.</span>
+          <span class="k">inference</span><span class="v">~40× cheaper every year.</span>
+        </div>
+        <div class="kv">
+          <span class="k">the template</span><span class="v">niantic sold the game, kept the models.</span>
+          <span class="k">the shape</span><span class="v">consumer economics fund a lab.</span>
+        </div>
+      </div>
+
+      <p class="math-foot">modeled prices are assumptions, not results. inference prices fall ~40× a year (epoch ai). niantic sold its games for $3.5b (mar 2025).</p>
+
+      <p class="punch">users fund the collection. labs pay for the understanding.</p>
+    </div>
+    <div class="brandmark"><span class="dot"></span>inyo</div>
+    <div class="pageno">→</div>
+  </section>
+
+  <!-- 11 · THE ROADMAP -->
+  <section data-label="11 the roadmap" style="background: radial-gradient(ellipse 1200px 900px at 8% 92%, #fff1ec 0%, #ffffff 55%);">
+    <div class="frame">
+      <div class="top">
+        <h2 class="chapter">11. the roadmap.</h2>
+        <span class="num">11 / 12</span>
       </div>
 
       <div class="stage">
         <div class="ladder">
           <div class="rung">
             <div class="ph-lab">phase 01 · now</div>
-            <div class="ph-t">nyc: prove the loop</div>
-            <div class="ph-d">dates per week. growth by word of mouth.</div>
+            <div class="ph-t">nyc: the loop runs</div>
+            <div class="ph-d">dates happen weekly. every one of them labeled.</div>
           </div>
           <div class="rung">
             <div class="ph-lab">phase 02 · next</div>
-            <div class="ph-t">the city playbook</div>
-            <div class="ph-d">replicate density, city by city.</div>
+            <div class="ph-t">cities and corpus</div>
+            <div class="ph-d">density city by city. 10,000 labeled relationship arcs.</div>
           </div>
           <div class="rung">
             <div class="ph-lab">phase 03 · then</div>
-            <div class="ph-t">the relationship layer</div>
-            <div class="ph-d">inyo stays after the match. deeper context, longer revenue.</div>
+            <div class="ph-t">the first lab products</div>
+            <div class="ph-d">the eq eval suite. preference sets. the api.</div>
           </div>
           <div class="rung accent">
             <div class="ph-lab">phase 04 · beyond</div>
-            <div class="ph-t">the context api</div>
-            <div class="ph-d">agents acting for people will need to know what those people feel.</div>
+            <div class="ph-t">when robots move in</div>
+            <div class="ph-d">we are the ground truth they train on.</div>
           </div>
         </div>
       </div>
 
-      <p class="punch">dating is the wedge. the context layer is the company.</p>
+      <p class="punch">the matchmaker is the instrument. the lab is the company.</p>
     </div>
     <div class="brandmark"><span class="dot"></span>inyo</div>
     <div class="pageno">→</div>
   </section>
 
-  <!-- 11 · THE TEAM -->
-  <section data-label="11 the team">
+  <!-- 12 · THE TEAM -->
+  <section data-label="12 the team">
     <div class="frame">
       <div class="top">
-        <h2 class="chapter">11. the team.</h2>
-        <span class="num">11 / 11</span>
+        <h2 class="chapter">12. the team.</h2>
+        <span class="num">12 / 12</span>
       </div>
 
       <div class="stage">
         <div class="founder">
+          <!-- swap for team photo when available -->
           <div class="photo">
-            <div class="lab">[ team photo ]<br>drop image here</div>
+            <span class="bm-dot"></span>
+            <span class="bm-word">inyo.</span>
           </div>
           <div style="flex:1;">
             <div class="founder-name">hena.</div>
             <p class="pull" style="max-width: 1080px;">
-              "we're creating this together with you, ensuring you feel seen and understood."
+              we're creating this together with you, ensuring you feel seen and understood.
             </p>
             <p class="pull" style="margin-top: 22px; max-width: 1080px;">
-              "we win when you find the real thing."
+              we win when you find the real thing.
             </p>
           </div>
         </div>
@@ -1493,13 +1381,11 @@
       <div class="rail">
         <div class="kv">
           <span class="k">hena</span><span class="v">co-founder.</span>
-          <span class="k"><span class="ph" style="font-size:20px;">[ name ]</span></span><span class="v"><span class="ph" style="font-size:20px;">[ role ]</span></span>
-          <span class="k"><span class="ph" style="font-size:20px;">[ name ]</span></span><span class="v"><span class="ph" style="font-size:20px;">[ role ]</span></span>
+          <span class="k">science partner</span><span class="v">gluck psychology.</span>
         </div>
         <div class="kv">
-          <span class="k">science partner</span><span class="v">gluck psychology.</span>
-          <span class="k">based</span><span class="v">new york.</span>
-          <span class="k">the rule</span><span class="v">no attachment loop. ever.</span>
+          <span class="k">product rule</span><span class="v">no attachment loop. ever.</span>
+          <span class="k">data rule</span><span class="v">derived only. never raw.</span>
         </div>
       </div>
 
@@ -1509,8 +1395,8 @@
     <div class="pageno">→</div>
   </section>
 
-  <!-- 12 · CLOSING -->
-  <section data-label="12 closing">
+  <!-- 13 · CLOSING -->
+  <section data-label="13 closing">
     <div class="closing">
       <h1 class="big">meet someone <span style="color: var(--accent);">real.</span></h1>
       <div class="sub"><a href="https://www.joininyo.com" style="color: inherit; text-decoration: none; border-bottom: 1px solid currentColor;">joininyo.com</a></div>
